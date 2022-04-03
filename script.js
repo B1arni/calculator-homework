@@ -53,7 +53,7 @@ class Calculator {
   }
 
   compute() {
-    let computation;
+    let result;
     const previous = this.previousOutput;
     const current = this.currentOutput;
 
@@ -63,25 +63,25 @@ class Calculator {
 
     switch (this.operation) {
       case '+':
-        computation = +previous + +current;
+        result = +previous + +current;
         break;
       case '-':
-        computation = previous - current;
+        result = previous - current;
         break;
       case 'x':
-        computation = previous * current;
+        result = previous * current;
         break;
       case '/':
-        computation = previous / current;
+        result = previous / current;
         break;
       default:
         return;
     }
 
-    if (Number.isInteger(computation)) {
-      this.currentOutput = computation;
+    if (Number.isInteger(result)) {
+      this.currentOutput = result;
     } else {
-      this.currentOutput = this.getDecimalNumber(computation);
+      this.currentOutput = this.getDecimalNumber(result);
     }
 
     this.operation = '';
@@ -136,7 +136,7 @@ equal.addEventListener('click', () => {
   calculator.updateDisplay();
 });
 
-acButton.addEventListener('click', button => {
+acButton.addEventListener('click', () => {
   calculator.allClear();
   calculator.updateDisplay();
 });
